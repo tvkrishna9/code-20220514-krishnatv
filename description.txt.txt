@@ -9,3 +9,15 @@ Inorder to reuse it we can pass different json files during runtime using config
 Inorder to use the test scenarios we can use write the code in try catch blocks to check whether all the required paramaters(such as height and weight) were present in the data.
 For time being I just wrote a simple working code just to show my way of approach to solve the problem.
 
+Sample output:
+    Gender  HeightCm  WeightKg    BMI          BMICategory      Healthrisk
+0    Male       171        96  56.14  Very severely obese  Very high risk
+1    Male       161        85  52.80  Very severely obese  Very high risk
+2    Male       180        77  42.78  Very severely obese  Very high risk
+3  Female       166        62  37.35       Severely obese       High risk
+4  Female       150        70  46.67  Very severely obese  Very high risk
+5  Female       167        82  49.10  Very severely obese  Very high risk
+6  Female       167        42  25.15           Overweight   Enhanced risk
+7  Female       197        42  21.32        Normal weight        Low risk
+count of overweight people :7
+
