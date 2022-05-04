@@ -12,7 +12,7 @@ category=[]  #for appending the category field
 risk=[]      # for appending the health risk field
 bi=[]        # for appending the BMI field in dataframe
 df = pd.DataFrame(list) 
-count=0
+count=0 #counter to count the overweight people
 for ind in df.index:
     BMI=df['WeightKg'][ind]/(df['HeightCm'][ind]/100)#convert height to mts
     if BMI<=18.4:
@@ -61,4 +61,4 @@ df['BMICategory'] = category
 df['BMI'] = bi
 df['Healthrisk'] = risk
 print (df) #prints the dataframe with the required/calculated columns
-print ("count of overweight people :" +str(count))
+print ("count of overweight people :" +str(count))#prints the count of overweight people(i.e excluding underweight and normal weight)
