@@ -1,0 +1,64 @@
+import pandas as pd
+#Reading the input as a list or we can use a file with json data and  convert that file to a dataframe in pandas
+list=[{"Gender": "Male", "HeightCm": 171, "WeightKg": 96 },
+{ "Gender": "Male", "HeightCm": 161, "WeightKg": 85 },
+{ "Gender": "Male", "HeightCm": 180, "WeightKg": 77 },
+{ "Gender": "Female", "HeightCm": 166, "WeightKg": 62},
+{"Gender": "Female", "HeightCm": 150, "WeightKg": 70},
+{"Gender": "Female", "HeightCm": 167, "WeightKg": 82},
+{"Gender": "Female", "HeightCm": 167, "WeightKg": 42},
+{"Gender": "Female", "HeightCm": 197, "WeightKg": 42}]#Sample Data
+category=[]  #for appending the category field
+risk=[]      # for appending the health risk field
+bi=[]        # for appending the BMI field in dataframe
+df = pd.DataFrame(list) 
+count=0
+for ind in df.index:
+    BMI=df['WeightKg'][ind]/(df['HeightCm'][ind]/100)#convert height to mts
+    if BMI<=18.4:
+        BMICategory='Underweight'
+        Healthrisk='Malnutrition risk' 
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        bi.append(round(BMI,2))
+    elif BMI>18.5 and BMI<=24.9:
+        BMICategory='Normal weight'
+        Healthrisk='Low risk'
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        bi.append(round(BMI,2))
+    elif BMI>25 and BMI<=29.9:
+        count+=1
+        BMICategory='Overweight'
+        Healthrisk='Enhanced risk'
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        bi.append(round(BMI,2))
+    elif BMI>30 and BMI<=34.9:
+        count+=1
+        BMICategory='Moderately obese'
+        Healthrisk='Medium risk' 
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        bi.append(round(BMI,2))
+    elif BMI>35 and BMI<=39.9:
+        count+=1
+        BMICategory='Severely obese'
+        Healthrisk='High risk' 
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        df['BMI'] = round(BMI,2)
+        bi.append(round(BMI,2))
+    else:
+        count+=1
+        BMICategory='Very severely obese'
+        Healthrisk='Very high risk' 
+        category.append(BMICategory)
+        risk.append(Healthrisk)
+        df['BMI'] = round(BMI,2)
+        bi.append(round(BMI,2))
+df['BMICategory'] = category
+df['BMI'] = bi
+df['Healthrisk'] = risk
+print (df) #prints the dataframe with the required/calculated columns
+print ("count of overweight people :" +str(count))

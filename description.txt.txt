@@ -1,0 +1,11 @@
+Inorder to solve this i just used the sample data and we need to import the pandas module to create a dataframe and apply the required transformations.
+
+The test.py takes the json input into a list and using pandas dataframe it calculates the required columns and prints the output
+
+We can also use the file(input json) to read the data and can convert it into a dataframe i have choosen the first option of sample data.
+
+Inorder to reuse it we can pass different json files during runtime using config parser we can read it and apply the transformations.
+
+Inorder to use the test scenarios we can use write the code in try catch blocks to check whether all the required paramaters(such as height and weight) were present in the data.
+For time being I just wrote a simple working code just to show my way of approach to solve the problem.
+
